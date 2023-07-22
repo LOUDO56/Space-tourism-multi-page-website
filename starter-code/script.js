@@ -8,3 +8,8 @@ const toggleMobileNav = () => {
 
 hamburgerIcon.addEventListener('click', toggleMobileNav);
 iconClose.addEventListener('click', toggleMobileNav);
+
+
+document.querySelector('.btn-explore').addEventListener('click', () => {
+    window.location.href = "web_page/destination.html";
+})

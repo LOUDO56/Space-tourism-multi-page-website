@@ -11,7 +11,6 @@
 }
 
 body{
-    animation: img-showing 2s ease;
     background: url(assets/home/background-home-desktop.jpg) no-repeat center center fixed; 
     background-size: cover;
     min-height: 100vh;
@@ -166,7 +165,7 @@ nav{
 
 .intro-container {
     opacity: 0;
-    animation: text-showing 3s ease 1.5s;
+    animation: text-showing 1.2s ease-out 0.2s;
     animation-fill-mode: both;
     display: flex;
     flex-direction: column;
@@ -183,7 +182,6 @@ nav{
 }
 
 .intro-container p:nth-child(2){
-    /* margin: 20px 0; */
     font-size: 10em;
     font-family: 'Bellefair', sans-serif;
     color: white;
@@ -200,17 +198,12 @@ nav{
 
 /* Button to explore */
 
-.link-explore{
-    pointer-events: none;
-    animation: btn-showing 2s ease-out 2.7s;
-    animation-fill-mode: both;
-}
+
 
 .btn-explore {
-    opacity: 0;
-    animation: btn-showing 2s ease-out 2.7s;
-    animation-fill-mode: both;
     display: flex;
+    animation: btn-showing 1s ease-out 0.8s;
+    animation-fill-mode: both;
     justify-content: center;
     align-items: center;
     width: 270px;
@@ -222,17 +215,6 @@ nav{
     font-family: 'Bellefair', sans-serif;
     letter-spacing: 3px;
     margin-top: 3.4em;
-}
-
-@keyframes img-showing{
-    0%{
-        backdrop-filter: blur(50px);
-    }
-
-    100%{
-        backdrop-filter: blur(0);
-    }
-
 }
 
 @keyframes text-showing{
@@ -258,7 +240,7 @@ nav{
     100%{
         transform: translateX(0);
         opacity: 1;
-        pointer-events: all;
+        cursor: pointer;
     }
 }
 
