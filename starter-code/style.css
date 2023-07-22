@@ -1,0 +1,336 @@
+:root{
+    --blue-title: #b8b9d1;
+    --blue-description: #adaec3;
+}
+
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: url(assets/home/background-home-desktop.jpg) no-repeat center center fixed; 
+    background-size: cover;
+    min-height: 100vh;
+    font-family: "Barlow", sans-serif;
+
+}
+
+/* Header part */
+
+a{
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    margin-left: 50px;
+}
+
+nav{
+    font-family: "Barlow Condensed", sans-serif;
+    position: relative;
+    float: right;
+    width: 57em;
+    font-size: 18.5px;
+    letter-spacing: 3px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(71, 71, 71, 0.13);
+    z-index: 0;
+    
+}
+
+
+
+.line-header{
+    transform: translate(50px);
+    width: 47em;
+    height: 2px;
+    background-color: rgb(44, 44, 44);
+    left: 10em;
+    z-index: 1;
+}
+
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10em;
+    gap: 50px;
+}
+
+.nav-bar a{
+    color: rgb(216, 216, 216);
+}
+
+.nav-bar li{
+    list-style-type: none;
+    padding: 40px 0;
+}
+
+.nav-bar a:first-child{
+    border-bottom: 3px solid white;
+}
+
+
+.number-list{
+    color: white;
+    margin-right: 5px;
+    font-size: 23px;
+}
+
+/* header part and mobile part */
+
+#hamburger-icon{
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-nav-container{
+    position: relative;
+    position: fixed;
+    top: 0;
+    right: -20em;
+    backdrop-filter: blur(20px);
+    width: 15em;
+    height: 100vh;
+    transition: all 0.3s;
+}
+
+.mobile-nav{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* margin-left: 50px; */
+    margin-top: 5em;
+    font-size: 25px;
+    letter-spacing: 3px;
+    font-family: "Barlow Condensed", sans-serif;
+    text-align: center;
+
+    
+}
+
+#icon-close{
+    position: absolute;
+    right: 30px;
+    top: 35px;
+    width: 30px;
+    cursor: pointer;
+    /* margin: 20px 30px; */
+}
+
+.mobile-nav li{
+    list-style-type: none;
+}
+
+.mobile-nav a{
+    color: white;
+}
+
+.mobile-nav-container.is-active{
+    right: 0;
+}
+
+
+/* Main part */
+
+
+/* Left Space, Introduction to space */
+
+.container{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14em;
+    margin-left: 25em;
+    margin-right: 25em;
+}
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.intro-container p:nth-child(1){
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: var(--blue-title);
+    letter-spacing: 5px;
+}
+
+.intro-container p:nth-child(2){
+    /* margin: 20px 0; */
+    font-size: 10em;
+    font-family: 'Bellefair', sans-serif;
+    color: white;
+}
+
+.intro-container p:nth-child(3){
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 35px;
+    color: var(--blue-description);
+    width: 24.5em;
+}
+
+
+/* Button to explore */
+
+
+.btn-explore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+    height: 270px;
+    background-color: white;
+    color: black;
+    font-size: 33px;
+    border-radius: 50%;
+    font-family: 'Bellefair', sans-serif;
+    letter-spacing: 3px;
+    margin-top: 3.4em;
+}
+
+
+
+
+@media screen and (max-width: 1672px) {
+    .container{
+        margin-left: 10em;
+        margin-right: 10em;
+    }
+    
+}
+
+
+@media screen and (max-width: 1472px) and (min-width: 1182px) {
+    nav{
+        width: 120em;
+    }
+    
+}
+
+
+@media screen and (max-width: 1182px) {
+    
+    body{
+        background-image: url(assets/home/background-home-tablet.jpg);
+    }
+
+    header{
+        margin-top: 0;
+    }
+
+    .line-header{
+        display: none;
+    }
+
+    .container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    nav{
+        width: 33em;
+        font-size: 15px;
+    }
+
+    .nav-bar{
+        margin-left: 3em;
+    }
+    
+    .number-list{
+        display: none;
+    }
+
+    .container{
+        margin-top: 5em;
+        justify-content: center;
+    }
+
+    .intro-container{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .intro-container p:nth-child(1){
+        font-size: 21px;
+    }
+
+    .intro-container p:nth-child(3){
+        font-size: 18px;
+        width: 33em;
+    }
+
+    .btn-explore{
+        width: 240px;
+        height: 240px;
+        font-size: 25px;
+    }
+
+
+    
+}
+
+@media screen and (max-width: 716px) {
+
+    header{
+        margin: 0 30px;
+    }
+
+    .img-logo{
+        width: 40px;
+    }
+
+    #hamburger-icon{
+        display: block;
+    }
+
+    body{
+        background-color: url(assets/home/background-home-mobile.jpg);
+    }
+
+    .intro-container{
+        gap: 30px;
+    }
+
+    .nav-bar{
+        display: none;
+    }
+
+    .intro-container p:nth-child(1){
+        font-size: 19px;
+    }
+
+    .intro-container p:nth-child(2){
+        font-size:7em;
+    }
+
+    .intro-container p:nth-child(3){
+        font-size: 20px;
+        width: 100%
+    }
+
+    .btn-explore{
+        width: 200px;
+        height: 200px;
+        font-size: 25px;
+        margin-top: 30px;
+    }
+
+
+    
+}
