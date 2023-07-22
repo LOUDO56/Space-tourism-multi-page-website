@@ -1,7 +1,10 @@
-document.getElementById('hamburger-icon').addEventListener('click', () => {
-    document.querySelectorAll('.mobile-nav-container')[0].classList.toggle('is-active');
-})
+const mobileNavContainer = document.querySelector('.mobile-nav-container');
+const hamburgerIcon = document.getElementById('hamburger-icon');
+const iconClose = document.getElementById('icon-close');
 
-document.getElementById('icon-close').addEventListener('click', () => {
-    document.querySelectorAll('.mobile-nav-container')[0].classList.toggle('is-active');
-})
+const toggleMobileNav = () => {
+    mobileNavContainer.classList.toggle('is-active');
+};
+
+hamburgerIcon.addEventListener('click', toggleMobileNav);
+iconClose.addEventListener('click', toggleMobileNav);
