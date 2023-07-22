@@ -11,5 +11,5 @@ iconClose.addEventListener('click', toggleMobileNav);
 
 
 document.querySelector('.btn-explore').addEventListener('click', () => {
-    window.location.href = "web_page/destination.html";
+    window.location.href = "starter-code/web_page/destination.html";
 })
