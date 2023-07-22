@@ -200,6 +200,11 @@ nav{
 
 /* Button to explore */
 
+.link-explore{
+    pointer-events: none;
+    animation: btn-showing 2s ease-out 2.7s;
+    animation-fill-mode: both;
+}
 
 .btn-explore {
     opacity: 0;
@@ -253,6 +258,7 @@ nav{
     100%{
         transform: translateX(0);
         opacity: 1;
+        pointer-events: all;
     }
 }
 
