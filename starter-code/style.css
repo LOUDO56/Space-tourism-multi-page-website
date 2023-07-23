@@ -10,15 +10,29 @@
     margin: 0;
 }
 
-body{
+.home-bc{
     background: url(assets/home/background-home-desktop.jpg) no-repeat center center fixed; 
     background-size: cover;
-    min-height: 100vh;
-    font-family: "Barlow", sans-serif;
-
 }
 
-/* Header part */
+.destination-bc{
+    background: url(assets/destination/background-destination-desktop.jpg) no-repeat center center fixed; 
+    background-size: cover;
+}
+
+li{
+    list-style-type: none;
+}
+
+
+/* ------- Header GLOBAL ------- */
+
+
+body{
+    min-height: 100vh;
+    font-family: "Barlow", sans-serif;
+    color: white;
+}
 
 a{
     text-decoration: none;
@@ -69,7 +83,6 @@ nav{
 }
 
 .nav-bar li{
-    list-style-type: none;
     padding: 40px 0;
     transition: all 0.1s;
     border-bottom: 0px solid transparent;
@@ -79,9 +92,6 @@ nav{
     border-bottom: 3px solid white;
 }
 
-.not-active li:hover{
-    border-bottom: 3px solid rgba(163, 200, 255, 0.911);
-}
 
 
 .number-list{
@@ -89,6 +99,7 @@ nav{
     margin-right: 5px;
     font-size: 23px;
 }
+
 
 /* header part and mobile part */
 
@@ -129,12 +140,8 @@ nav{
     top: 35px;
     width: 30px;
     cursor: pointer;
-    /* margin: 20px 30px; */
 }
 
-.mobile-nav li{
-    list-style-type: none;
-}
 
 .mobile-nav a{
     color: white;
@@ -148,13 +155,34 @@ nav{
     right: 0;
 }
 
+.number-step{
+    color: rgb(71, 69, 69);
+    margin-right: 12px;
+    font-size: 27px;
+    font-weight: bold;
+}
 
-/* Main part */
+.intro-step{
+    margin-bottom: 4em;
+    font-size: 25px;
+    letter-spacing: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.not-active{
+    transition: all 0.1s;
+}
+
+.not-active:hover{
+    border-bottom: 3px solid rgba(163, 200, 255, 0.911);
+}
+
+/* ------- Home Page -------- */
 
 
 /* Left Space, Introduction to space */
 
-.container{
+.home-container{
     color: white;
     display: flex;
     justify-content: space-between;
@@ -201,8 +229,11 @@ nav{
 
 
 .btn-explore {
+    z-index: 1;
+    position: relative;
     display: flex;
     animation: btn-showing 1s ease-out 0.8s;
+    transition: all 200ms;
     animation-fill-mode: both;
     justify-content: center;
     align-items: center;
@@ -215,7 +246,111 @@ nav{
     font-family: 'Bellefair', sans-serif;
     letter-spacing: 3px;
     margin-top: 3.4em;
+  }
+
+.btn-explore::after{
+    content: '';
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    background-color: white;
+    z-index: -1;
+    border-radius: 50%;
+    opacity: 0.2;
+    transition: all 1s ease;
 }
+
+.btn-explore:hover::after{
+    transform: scale(1.4);
+}
+
+
+/* ---------- Destination Page ------------ */
+
+
+.destination-bc{
+    background: url(assets/destination/background-destination-desktop.jpg) no-repeat center center fixed; 
+    background-size: cover;
+}
+
+.destination-container{
+    width: 68em;
+    margin: 5em auto 5em auto;
+}
+
+.seperation-line-planet{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(71, 69, 69);
+}
+
+
+.planet-info-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    gap: 10em;
+}
+
+.planet-choice ul{
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: rgb(216, 216, 216);
+}
+
+.planet-choice li{
+    padding: 10px 0;
+    cursor: pointer;
+    font-family: 'Barlow Condensed';
+
+}
+
+.planet-info{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* width: 28em; */
+}
+
+
+.planet-name{
+    font-size: 6em;
+    font-family: "Bellefair", sans-serif;
+    text-transform: uppercase;
+}
+
+.planet-desc{
+    color: rgb(216, 216, 216);
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.planet-estimation{
+    display: flex;
+    gap: 5em;
+}
+
+.title-estimation{
+    font-size: 12px;
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 3px;
+    color: rgb(187, 185, 185);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.desc-estimation{
+    font-size: 25px;
+    font-family: 'Bellefair', sans-serif;
+    text-transform: uppercase;
+}
+
+
+
 
 @keyframes text-showing{
     0%{
@@ -230,23 +365,22 @@ nav{
 }
 
 
-
-@keyframes btn-showing{
-    0%{
-        transform: translateX(40%);
-        opacity: 0;
+@keyframes btn-showing {
+    0% {
+      transform: translateX(40%);
+      opacity: 0;
     }
-
-    100%{
-        transform: translateX(0);
-        opacity: 1;
-        cursor: pointer;
+  
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+      cursor: pointer;
     }
-}
+  }
 
 
 @media screen and (max-width: 1672px) {
-    .container{
+    .home-container{
         margin-left: 10em;
         margin-right: 10em;
     }
@@ -264,9 +398,6 @@ nav{
 
 @media screen and (max-width: 1182px) {
     
-    body{
-        background-image: url(assets/home/background-home-tablet.jpg);
-    }
 
     header{
         margin-top: 0;
@@ -276,7 +407,7 @@ nav{
         display: none;
     }
 
-    .container{
+    .home-container{
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -298,7 +429,13 @@ nav{
         display: none;
     }
 
-    .container{
+    /*--------- Home Responsive ----------- */
+
+    .home-bc{
+        background-image: url(assets/home/background-home-tablet.jpg);
+    }
+
+    .home-container{
         margin-top: 5em;
         justify-content: center;
     }
@@ -323,6 +460,35 @@ nav{
         font-size: 25px;
     }
 
+    .btn-explore::after{
+        content: '';
+        width: 240px;
+        height: 240px;
+    }
+    
+
+    /*--------- Destination Responsive ----------- */
+
+    .destination-bc{
+        background-image: url(assets/destination/background-destination-tablet.jpg);
+    }
+
+    .destination-container{
+        width: 90%;
+    }
+
+
+    .planet-info-container{
+        flex-direction: column;
+        gap: 50px;
+        margin-left: 0;
+    }
+
+    .planet-info{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
 
     
 }
@@ -345,7 +511,9 @@ nav{
         display: block;
     }
 
-    body{
+    /*--------- Home Responsive ----------- */
+
+    .home-bc{
         background-color: url(assets/home/background-home-mobile.jpg);
     }
 
@@ -377,6 +545,25 @@ nav{
         margin-top: 30px;
     }
 
+    .btn-explore::after{
+        content: '';
+        width: 200px;
+        height: 200px;
+    }
+
+    /*--------- Destination Responsive ----------- */
+
+    .destination-bc{
+        background-image: url(assets/destination/background-destination-mobile.jpg);
+    }
+
+    .planet-img{
+        width: 20em;
+    }
+
+    .intro-step{
+       text-align: center;
+    }
 
     
 }
