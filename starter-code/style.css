@@ -32,6 +32,7 @@ body{
     min-height: 100vh;
     font-family: "Barlow", sans-serif;
     color: white;
+    background-color: black;
 }
 
 a{
@@ -179,7 +180,6 @@ nav{
 
 /* ------- Home Page -------- */
 
-
 /* Left Space, Introduction to space */
 
 .home-container{
@@ -265,6 +265,33 @@ nav{
 }
 
 
+@keyframes text-showing{
+    0%{
+        transform: translateX(-20%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes btn-showing {
+    0% {
+      transform: translateX(40%);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+
 /* ---------- Destination Page ------------ */
 
 
@@ -309,6 +336,7 @@ nav{
 }
 
 .planet-info{
+    animation: info-planet-showing 1s ease;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -319,6 +347,7 @@ nav{
 .planet-name{
     font-size: 6em;
     font-family: "Bellefair", sans-serif;
+    animation-timing-function: ease;
     text-transform: uppercase;
 }
 
@@ -335,7 +364,7 @@ nav{
 }
 
 .title-estimation{
-    font-size: 12px;
+    font-size: 12.4px;
     font-family: 'Barlow Condensed', sans-serif;
     letter-spacing: 3px;
     color: rgb(187, 185, 185);
@@ -349,34 +378,39 @@ nav{
     text-transform: uppercase;
 }
 
+.planet-img{
+    animation: planet-showing 1.5s ease;
+}
+
+.planet-img.anim-test{
+    animation: planet-showing 1.5s ease;
+}
 
 
-
-@keyframes text-showing{
+@keyframes planet-showing{
     0%{
-        transform: translateX(-20%);
         opacity: 0;
     }
 
     100%{
-        transform: translateX(0);
         opacity: 1;
     }
 }
 
 
-@keyframes btn-showing {
-    0% {
-      transform: translateX(40%);
-      opacity: 0;
+@keyframes info-planet-showing{
+    0%{
+        opacity: 0;
+        transform: translate(50px);
     }
-  
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-      cursor: pointer;
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
     }
-  }
+}
+
+
 
 
 @media screen and (max-width: 1672px) {
@@ -553,9 +587,9 @@ nav{
 
     /*--------- Destination Responsive ----------- */
 
-    .destination-bc{
+    /* .destination-bc{
         background-image: url(assets/destination/background-destination-mobile.jpg);
-    }
+    } */
 
     .planet-img{
         width: 20em;
@@ -563,6 +597,10 @@ nav{
 
     .intro-step{
        text-align: center;
+    }
+
+    .planet-name{
+        font-size: 5.5em;
     }
 
     
