@@ -23,6 +23,11 @@
 .crew-bc{
     background: url(assets/crew/background-crew-desktop.jpg) no-repeat center center fixed; 
     background-size: cover;
+}
+
+.technology-bc{
+    background: url(assets/technology/background-technology-desktop.jpg) no-repeat center center fixed; 
+    background-size: cover;
     
 }
 
@@ -472,10 +477,6 @@ nav{
 
 
 
-/* ---------- Technology Page ------------ */
-
-
-
 @keyframes planet-showing{
     0%{
         opacity: 0;
@@ -510,6 +511,71 @@ nav{
         transform: rotate(360deg);
     }
 }
+
+
+
+/* ---------- Technology Page ------------ */
+
+
+.technology-info-container{
+    display: flex;
+    align-items: center;
+    gap: 5em;
+    /* justify-content: space-between; */
+}
+
+.technology-title{
+    font-size: 1em;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    color: #adaec3d2;
+    letter-spacing: 2px;
+}
+
+.technology-rocket{
+    font-size: 3.3em;
+    font-family: 'Bellefair', sans-serif;
+    text-transform: uppercase;
+    margin: 15px 0;
+    white-space: nowrap;
+}
+
+.technology-desc{
+    font-size: 17px;
+    color: var(--blue-description);
+    line-height: 1.7;
+    width: 24.5em;
+}
+
+.rocket-choice{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+
+.rocket-choice span{
+    color: black;
+    font-size: 32px;
+    font-family: 'Bellefair', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgb(73, 72, 72);
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.rocket-choice span.active{
+    background-color: white;
+    color: black;
+    border: none;
+}   
 
 
 

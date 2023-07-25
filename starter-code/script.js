@@ -29,6 +29,8 @@ async function fetchData(){
 		changePlanetInfo(data)
 	} else if (window.location.href.includes("crew")){
 		changeCrewInfo(data)
+	} else if (window.location.href.includes("technology")){
+		changeTechInfo(data)
 	}
 }
 
@@ -100,4 +102,24 @@ function changeCrewInfo(crewData){
 	}
 }
 
-fetchData()
+function changeTechInfo(techData){
+	const rocketName = document.querySelector('.technology-rocket')
+	const rocketDesc = document.querySelector('.technology-desc')
+	const rocketImg = document.querySelector('.technology-img')
+	const linkTech = document.querySelector('.rocket-choice').children
+	console.log(linkTech)
+	let onWhatPage = 0;
+	for(let i = 0; i < linkTech.length; i++){
+		linkTech[i].addEventListener('click', () => {
+			linkTech[onWhatPage].classList.toggle('active')
+			linkTech[i].classList.toggle('active')
+			rocketName.textContent = techData.technology[i].name
+			rocketDesc.textContent = techData.technology[i].description
+			rocketImg.src = techData.technology[i].images.portrait
+			onWhatPage = i;
+		})
+	}
+}
+
+
+fetchData();
