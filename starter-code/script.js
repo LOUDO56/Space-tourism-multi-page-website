@@ -9,11 +9,7 @@ const toggleMobileNav = () => {
 hamburgerIcon.addEventListener('click', toggleMobileNav);
 iconClose.addEventListener('click', toggleMobileNav);
 
-if(window.location.href.includes("index")){
-    document.querySelector('.btn-explore').addEventListener('click', () => {
-        window.location.href = "starter-code/page/destination.html";
-    })
-}
+
 
 
 
@@ -89,8 +85,24 @@ function changeCrewInfo(crewData){
 	const crewImg = document.querySelector('.crew-img')
 	const linkCrew = document.querySelectorAll('.btn-change-crew')
 	let onWhatPage = 0;
+	const animations = [
+		{ element: crewJob, props: [{ transform: "translate(-50px)", opacity: 0 }, { transform: "translate(0)", opacity: 1 }] },
+		{ element: crewName, props: [{ transform: "translate(-50px)", opacity: 0 }, { transform: "translate(0)", opacity: 1 }] },
+		{ element: crewDesc, props: [{ transform: "translate(-50px)", opacity: 0 }, { transform: "translate(0)", opacity: 1 }] }
+	  ];
 	for(let i = 0; i < linkCrew.length; i++){
 		linkCrew[i].addEventListener('click', () => {
+			if(onWhatPage !== i){
+				crewImg.animate([
+					{opacity: 0},
+					{opacity: 1}
+				], {
+					duration: 100
+				})
+				for (const animation of animations) {
+					animation.element.animate(animation.props, { duration: 115 });
+				}
+			}
 			linkCrew[onWhatPage].classList.toggle('btn-active')
 			linkCrew[i].classList.toggle('btn-active')
 			crewJob.textContent = crewData.crew[i].role
@@ -102,20 +114,38 @@ function changeCrewInfo(crewData){
 	}
 }
 
+
+
 function changeTechInfo(techData){
 	const rocketName = document.querySelector('.technology-rocket')
 	const rocketDesc = document.querySelector('.technology-desc')
-	const rocketImg = document.querySelector('.technology-img')
+	const rocketImg = document.querySelectorAll('.technology-img')
 	const linkTech = document.querySelector('.rocket-choice').children
-	console.log(linkTech)
 	let onWhatPage = 0;
+	const animations = [
+		{ element: rocketName, props: [{ transform: "translateY(-50px)", opacity: 0 }, { transform: "translateY(0)", opacity: 1 }] },
+		{ element: rocketDesc, props: [{ transform: "translateY(-50px)", opacity: 0 }, { transform: "translateY(0)", opacity: 1 }] },
+		{ element: document.querySelector('.technology-title'), props: [{ transform: "translateY(-50px)", opacity: 0 }, { transform: "translateY(0)", opacity: 1 }] }
+		
+	  ];
 	for(let i = 0; i < linkTech.length; i++){
 		linkTech[i].addEventListener('click', () => {
+			if(onWhatPage !== i){
+				rocketImg.forEach(img => img.animate([{opacity: 0}, {opacity: 1}], { duration: 100 }));
+				for (const animation of animations) {
+					animation.element.animate(animation.props, { duration: 115 });
+				}
+			}
 			linkTech[onWhatPage].classList.toggle('active')
 			linkTech[i].classList.toggle('active')
 			rocketName.textContent = techData.technology[i].name
 			rocketDesc.textContent = techData.technology[i].description
-			rocketImg.src = techData.technology[i].images.portrait
+			if(window.screen.width < 1182){
+				rocketImg[1].src = techData.technology[i].images.landscape
+			} else {
+				rocketImg[0].src = techData.technology[i].images.portrait
+			}
+			
 			onWhatPage = i;
 		})
 	}
