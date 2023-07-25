@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here]([https://your-solution-url.com](https://www.frontendmentor.io/solutions/space-tourism-multi-page-JPf9WqNKJ9))
-- Live Site URL: [Add live site URL here]([https://your-live-site-url.com](https://loudo56.github.io/Space-tourism-multi-page-website/index.html))
+- Solution URL: <a href="https://www.frontendmentor.io/solutions/space-tourism-multi-page-JPf9WqNKJ9">Link</a>
+- Live Site URL: <a href="https://loudo56.github.io/Space-tourism-multi-page-website/index.html">Link</a>
 
 ### Built with
 
@@ -48,4 +48,4 @@ Users should be able to:
 
 ## Author
 
-- Frontend Mentor - [@yourusername]([https://www.frontendmentor.io/profile/yourusername](https://www.frontendmentor.io/profile/LOUDO56))
+- Frontend Mentor - <a href="https://www.frontendmentor.io/profile/LOUDO56">@LOUDO56</a>
