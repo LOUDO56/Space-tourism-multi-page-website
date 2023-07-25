@@ -21,11 +21,15 @@ if(window.location.href.includes("index")){
 
 
 
-async function fetchPlanetData(){
-	let planetData;
+async function fetchData(){
+	let data;
 	const res = await fetch('../data.json')
-	planetData = await res.json()
-	changePlanetInfo(planetData)
+	data = await res.json()
+	if(window.location.href.includes("destination")){
+		changePlanetInfo(data)
+	} else if (window.location.href.includes("crew")){
+		changeCrewInfo(data)
+	}
 }
 
 function changePlanetInfo(planetData){
@@ -47,8 +51,8 @@ function changePlanetInfo(planetData){
 		linkPlanet[i].addEventListener('click', () => {
 			if(onWhatPage !== i){
 				planetImg.animate([
-					{opacity: 0, transform: "scale(0.98)"},
-					{opacity: 1, transform: "scale(1)"}
+					{opacity: 0},
+					{opacity: 1}
 				], {
 					duration: 300
 				})
@@ -76,4 +80,24 @@ function changePlanetInfo(planetData){
 }
 
 
-fetchPlanetData()
+function changeCrewInfo(crewData){
+	const crewJob = document.querySelector('.crew-job')
+	const crewName = document.querySelector('.crew-name')
+	const crewDesc = document.querySelector('.crew-desc')
+	const crewImg = document.querySelector('.crew-img')
+	const linkCrew = document.querySelectorAll('.btn-change-crew')
+	let onWhatPage = 0;
+	for(let i = 0; i < linkCrew.length; i++){
+		linkCrew[i].addEventListener('click', () => {
+			linkCrew[onWhatPage].classList.toggle('btn-active')
+			linkCrew[i].classList.toggle('btn-active')
+			crewJob.textContent = crewData.crew[i].role
+			crewName.textContent = crewData.crew[i].name
+			crewDesc.textContent = crewData.crew[i].bio
+			crewImg.src = crewData.crew[i].images.png
+			onWhatPage = i;
+		})
+	}
+}
+
+fetchData()

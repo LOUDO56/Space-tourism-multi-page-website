@@ -20,6 +20,12 @@
     background-size: cover;
 }
 
+.crew-bc{
+    background: url(assets/crew/background-crew-desktop.jpg) no-repeat center center fixed; 
+    background-size: cover;
+    
+}
+
 li{
     list-style-type: none;
 }
@@ -379,12 +385,95 @@ nav{
 }
 
 .planet-img{
-    animation: planet-showing 1.5s ease;
+    animation: planet-showing 1.5s ease, planet-rotation 150s linear infinite
+
 }
 
-.planet-img.anim-test{
-    animation: planet-showing 1.5s ease;
+
+/* ---------- Crew Page ------------ */
+
+.crew-container{
+    width: 68em;
+    margin: 5em auto 0 auto;
 }
+
+.crew-info{
+    margin-top: 6em;
+    display: flex;
+    flex-direction: column;
+    gap: 12em;
+}
+
+.crew-job{
+    font-size: 2em;
+    font-family: 'Bellefair', sans-serif;
+    text-transform: uppercase;
+    color: rgb(105, 105, 105)
+}
+
+.crew-name{
+    font-size: 3.3em;
+    font-family: 'Bellefair', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    white-space: nowrap;
+}
+
+.crew-desc{
+    font-size: 17px;
+    color: var(--blue-description);
+    line-height: 1.7;
+    width: 24.5em;
+}
+
+.crew-info-container{
+    display: flex;
+    gap: 5em;
+    justify-content: space-between;
+}
+
+.change-crew{
+    display: flex;
+    position: absolute;
+    bottom: 50px;
+    gap: 1.3em;
+}
+
+.btn-change-crew{
+    display: block;
+    width: 12px;
+    height: 12px;
+    margin-bottom: 10px;
+    background-color: rgb(65, 65, 65);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btn-active{
+    background-color: white;
+}
+
+
+.crew-img{
+    position: absolute;
+    bottom: 0;
+    max-width: 150%;
+}
+
+.img-crew-container{
+    display: flex;
+    justify-content: center;
+    width: 25em;
+    height: 14cm;
+    /* margin-top: 70px; */
+    /* border: 2px solid red; */
+}
+
+
+
+/* ---------- Technology Page ------------ */
+
 
 
 @keyframes planet-showing{
@@ -409,6 +498,19 @@ nav{
         transform: translate(0);
     }
 }
+
+
+@keyframes planet-rotation{
+
+    0%{
+        transform: rotate(0);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
 
 
 
@@ -524,6 +626,47 @@ nav{
         align-items: center;
     }
 
+    /*--------- Crew Responsive ----------- */
+
+    .crew-bc{
+        background-image: url(assets/crew/background-crew-tablet.jpg);
+    }
+    
+    .crew-container{
+        width: 90%;
+    }
+    
+    .crew-info-container{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .crew-info{
+        flex-direction: column-reverse;
+        gap: 35px;
+        margin-top: 0;
+        margin-bottom: 50px;
+        align-items: center;
+        text-align: center;
+    }
+
+
+    .crew-name{
+        white-space: normal;
+        font-size: 2.5em;
+    }
+    
+    .crew-desc{
+        width: 100%;
+    }
+
+    .crew-job{
+        font-size: 1.7em;
+    }
+
+    .change-crew{
+        position: relative;
+    }
     
 }
 
@@ -587,10 +730,6 @@ nav{
 
     /*--------- Destination Responsive ----------- */
 
-    /* .destination-bc{
-        background-image: url(assets/destination/background-destination-mobile.jpg);
-    } */
-
     .planet-img{
         width: 20em;
     }
@@ -602,6 +741,31 @@ nav{
     .planet-name{
         font-size: 5.5em;
     }
+
+    /*--------- Crew Responsive ----------- */
+
+    .crew-bc{
+        background-image: url(assets/crew/background-crew-mobile.jpg);
+    }
+
+    .img-crew-container{
+        transform: scale(0.6);
+
+    }
+
+    .crew-name{
+        font-size: 2em;
+    }
+
+    .change-crew{
+        bottom: 0;
+    }
+    
+
+    .crew-info-container{
+        gap: 0;
+    }
+    
 
     
 }
